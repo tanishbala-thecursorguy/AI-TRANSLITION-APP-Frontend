@@ -1,0 +1,8 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+/* Force ultra-light Turquoise Blue background with 90% transparency */
+html, body, #root {
+  background-color: rgba(220, 255, 253, 0.1) !important;
+}
