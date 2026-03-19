@@ -84,7 +84,7 @@ export function StatusPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-white border border-[rgba(0,0,0,0.08)] rounded-lg p-6"
+                  className="bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-lg p-6"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-start gap-4 flex-1">
@@ -145,7 +145,7 @@ export function StatusPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
                   whileHover={{ y: -2 }}
-                  className="bg-white border border-[rgba(0,0,0,0.08)] rounded-lg p-6 hover:shadow-md transition-all duration-300"
+                  className="bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-lg p-6 hover:shadow-md transition-all duration-300"
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex items-start gap-4 flex-1">

@@ -131,7 +131,7 @@ export function BillingPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -8 }}
-              className={`bg-white border rounded-lg p-8 transition-all duration-300 ${
+              className={`bg-[#e1f3f3] border rounded-lg p-8 transition-all duration-300 ${
                 tier.highlighted
                   ? 'border-black shadow-lg'
                   : 'border-[rgba(0,0,0,0.08)] hover:border-[rgba(0,0,0,0.2)] hover:shadow-md'

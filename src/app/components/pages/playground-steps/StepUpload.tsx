@@ -8,6 +8,7 @@ import { toast } from 'sonner';
 import { useAuth } from '../../../contexts/AuthContext';
 import { AuthModal } from '../../ui/AuthModal';
 import { WelcomeModal } from '../../ui/WelcomeModal';
+import { motion } from 'motion/react';
 
 interface StepUploadProps {
   data: PlaygroundData;
@@ -76,7 +77,7 @@ export function StepUpload({ data, updateData, onFileAnalyzed }: StepUploadProps
         console.log('[StepUpload] updateData called with pageStats:', pageStats);
 
         toast.success('File analyzed successfully', {
-          description: `${pageCount} ${pageCount === 1 ? 'page' : 'pages'} detected · ${formatCredits(requiredCredits)} credits required`,
+          description: `${pageCount} ${pageCount === 1 ? 'page' : 'pages'} detected`,
         });
 
         onFileAnalyzed?.(pageCount, requiredCredits);
@@ -131,7 +132,7 @@ export function StepUpload({ data, updateData, onFileAnalyzed }: StepUploadProps
       <div className="relative">
         {/* Actual upload component */}
         <div 
-          className="w-full max-w-4xl mx-auto min-h-96 border border-dashed bg-white border-neutral-200 rounded-lg"
+          className="w-full max-w-4xl mx-auto min-h-96 border border-dashed bg-[#e1f3f3] border-neutral-200 rounded-lg"
         >
           <FileUpload 
             onChange={handleFileUpload}
@@ -154,34 +155,59 @@ export function StepUpload({ data, updateData, onFileAnalyzed }: StepUploadProps
 
       {/* File info display */}
       {data.file && (
-        <div className="mt-6 p-4 bg-[#ecfeff] rounded-lg border border-[rgba(0,0,0,0.08)]">
-          <div className="flex items-start gap-3">
-            <FileText className="w-5 h-5 flex-shrink-0 mt-0.5" />
-            <div className="flex-1">
-              <p className="font-medium mb-1" style={{ fontFamily: 'var(--font-sans)' }}>
-                {data.fileName}
-              </p>
-              <p className="text-sm text-[#6B6B6B]" style={{ fontFamily: 'var(--font-sans)' }}>
-                Size: {data.fileSize}
-              </p>
-              
-              {isDetecting ? (
-                <div className="flex items-center gap-2 mt-2 text-sm text-[#6B6B6B]">
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  <span style={{ fontFamily: 'var(--font-sans)' }}>Detecting pages...</span>
-                </div>
-              ) : (
-                <>
+        <div className="mt-8">
+          {/* File details card */}
+          <div className="p-4 bg-[#e1f3f3] rounded-lg border border-[rgba(0,0,0,0.08)] mb-8">
+            <div className="flex items-start gap-3">
+              <FileText className="w-5 h-5 flex-shrink-0 mt-0.5" />
+              <div className="flex-1">
+                <p className="font-medium mb-1" style={{ fontFamily: 'var(--font-sans)' }}>
+                  {data.fileName}
+                </p>
+                <p className="text-sm text-[#6B6B6B]" style={{ fontFamily: 'var(--font-sans)' }}>
+                  Size: {data.fileSize}
+                </p>
+                
+                {isDetecting ? (
+                  <div className="flex items-center gap-2 mt-2 text-sm text-[#6B6B6B]">
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span style={{ fontFamily: 'var(--font-sans)' }}>Detecting pages...</span>
+                  </div>
+                ) : (
                   <p className="text-sm text-[#3A3A3A] mt-2" style={{ fontFamily: 'var(--font-sans)' }}>
                     Pages detected: <span className="font-medium">{data.pageCount}</span>
                   </p>
-                  <p className="text-sm text-[#3A3A3A]" style={{ fontFamily: 'var(--font-sans)' }}>
-                    Credits required: <span className="font-medium">{formatCredits(data.requiredCredits)}</span>
-                  </p>
-                </>
-              )}
+                )}
+              </div>
             </div>
           </div>
+
+          {/* Context Information Textbox */}
+          {!isDetecting && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="pt-6 border-t border-[rgba(0,0,0,0.08)]"
+            >
+              <label
+                htmlFor="contextInfo"
+                className="block mb-2 text-sm font-medium"
+                style={{ fontFamily: 'var(--font-sans)' }}
+              >
+                Contextual Information
+              </label>
+              <textarea
+                id="contextInfo"
+                value={data.contextInfo || ''}
+                onChange={(e) => updateData({ contextInfo: e.target.value })}
+                rows={5}
+                className="w-full px-4 py-3 bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-md focus:outline-none focus:ring-1 focus:ring-black transition-all resize-none"
+                style={{ fontFamily: 'var(--font-sans)' }}
+                placeholder="Provide any relevant context about your document, such as subject matter, specific terminology, writing style, or important notes..."
+              />
+            </motion.div>
+          )}
         </div>
       )}
 

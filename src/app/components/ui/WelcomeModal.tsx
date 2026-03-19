@@ -32,7 +32,7 @@ export function WelcomeModal({ isOpen, onClose, isNewUser }: WelcomeModalProps) 
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: "spring", duration: 0.5 }}
-              className="bg-white rounded-lg shadow-2xl max-w-md w-full overflow-y-auto relative"
+              className="bg-[#e1f3f3] rounded-lg shadow-2xl max-w-md w-full overflow-y-auto relative"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close button */}
@@ -70,14 +70,13 @@ export function WelcomeModal({ isOpen, onClose, isNewUser }: WelcomeModalProps) 
                       className="text-base text-[#6B6B6B] mb-4 text-center leading-relaxed"
                       style={{ fontFamily: 'var(--font-sans)' }}
                     >
-                      You're all set! To help you get started, we've added{" "}
-                      <span className="font-semibold text-black">3,600 free credits</span> to your account.
+                      Welcome to AI Book Translation! You're all set to start translating your documents.
                     </p>
                     <p 
                       className="text-sm text-[#6B6B6B] text-center"
                       style={{ fontFamily: 'var(--font-sans)' }}
                     >
-                      Use these credits to translate your documents instantly.
+                      Upload your files and experience seamless translation powered by advanced AI.
                     </p>
                   </>
                 ) : (
@@ -85,7 +84,7 @@ export function WelcomeModal({ isOpen, onClose, isNewUser }: WelcomeModalProps) 
                     className="text-base text-[#6B6B6B] text-center leading-relaxed"
                     style={{ fontFamily: 'var(--font-sans)' }}
                   >
-                    You're successfully logged in. Continue translating your documents.
+                    Welcome back! Continue translating your documents with ease.
                   </p>
                 )}
 

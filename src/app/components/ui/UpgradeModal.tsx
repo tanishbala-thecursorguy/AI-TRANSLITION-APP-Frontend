@@ -35,7 +35,7 @@ export function UpgradeModal({ isOpen, onClose }: UpgradeModalProps) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: 'spring', duration: 0.5 }}
-              className="bg-white rounded-lg shadow-2xl max-w-md w-full p-8 relative"
+              className="bg-[#e1f3f3] rounded-lg shadow-2xl max-w-md w-full p-8 relative"
             >
               {/* Close button */}
               <button

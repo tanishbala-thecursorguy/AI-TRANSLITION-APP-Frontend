@@ -87,7 +87,7 @@ export function AuthModal({ isOpen, onClose, onSignupComplete }: AuthModalProps)
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: "spring", duration: 0.5 }}
-              className="bg-white rounded-lg shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto relative"
+              className="bg-[#e1f3f3] rounded-lg shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto relative"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close button */}
@@ -263,7 +263,7 @@ export function AuthModal({ isOpen, onClose, onSignupComplete }: AuthModalProps)
                   </div>
                   <div className="relative flex justify-center text-sm">
                     <span 
-                      className="px-2 bg-white text-gray-500"
+                      className="px-2 bg-[#e1f3f3] text-gray-500"
                       style={{ fontFamily: 'var(--font-sans)' }}
                     >
                       or continue with

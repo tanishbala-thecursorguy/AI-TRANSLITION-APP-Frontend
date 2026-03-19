@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { motion } from 'motion/react';
-import { User, Mail, CreditCard, LogOut, Coins } from 'lucide-react';
+import { User, Mail, CreditCard, LogOut } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { PageLoader } from '../layout/PageLoader';
-import { formatCredits } from '../../utils/fileUtils';
 
 export function AccountPage() {
   const navigate = useNavigate();
-  const { user, logout, credits } = useAuth();
+  const { user, logout } = useAuth();
 
   const handleLogout = () => {
     logout();
@@ -49,7 +48,7 @@ export function AccountPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-white border border-[rgba(0,0,0,0.08)] rounded-lg p-4 md:p-8"
+            className="bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-lg p-4 md:p-8"
           >
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
               <div className="flex items-center gap-3 md:gap-4">
@@ -96,39 +95,12 @@ export function AccountPage() {
             </div>
           </motion.div>
 
-          {/* Credits Balance */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-            className="bg-gradient-to-br from-black to-[#3A3A3A] text-white rounded-lg p-4 md:p-8"
-          >
-            <div className="flex items-start justify-between">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center">
-                  <Coins className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl mb-1" style={{ fontFamily: 'var(--font-serif)' }}>
-                    Available Credits
-                  </h3>
-                  <p className="text-3xl font-medium mb-2" style={{ fontFamily: 'var(--font-serif)' }}>
-                    {formatCredits(credits)}
-                  </p>
-                  <p className="text-sm text-white/70" style={{ fontFamily: 'var(--font-sans)' }}>
-                    1 page = 1,200 credits • {Math.floor(credits / 1200)} pages remaining
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
           {/* Subscription */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-white border border-[rgba(0,0,0,0.08)] rounded-lg p-4 md:p-8"
+            className="bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-lg p-4 md:p-8"
           >
             <div className="flex flex-col sm:flex-row items-start justify-between gap-4">
               <div className="flex items-start gap-4">
@@ -164,7 +136,7 @@ export function AccountPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="bg-white border border-[rgba(0,0,0,0.08)] rounded-lg p-4 md:p-8"
+            className="bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-lg p-4 md:p-8"
           >
             <h3 className="text-xl mb-6" style={{ fontFamily: 'var(--font-serif)' }}>
               Account Actions
@@ -172,7 +144,7 @@ export function AccountPage() {
             
             <div className="space-y-4">
               <button
-                className="w-full flex items-center gap-3 px-4 py-3 border border-[rgba(0,0,0,0.08)] rounded-md hover:bg-[#ecfeff] transition-all text-left"
+                className="w-full flex items-center gap-3 px-4 py-3 border border-[rgba(0,0,0,0.08)] rounded-md hover:bg-[#e1f3f3] transition-all text-left"
                 style={{ fontFamily: 'var(--font-sans)' }}
               >
                 <User className="w-5 h-5 text-[#6B6B6B]" />
@@ -180,7 +152,7 @@ export function AccountPage() {
               </button>
               
               <button
-                className="w-full flex items-center gap-3 px-4 py-3 border border-[rgba(0,0,0,0.08)] rounded-md hover:bg-[#ecfeff] transition-all text-left"
+                className="w-full flex items-center gap-3 px-4 py-3 border border-[rgba(0,0,0,0.08)] rounded-md hover:bg-[#e1f3f3] transition-all text-left"
                 style={{ fontFamily: 'var(--font-sans)' }}
               >
                 <Mail className="w-5 h-5 text-[#6B6B6B]" />

@@ -1,9 +1,8 @@
 import { motion } from 'motion/react';
-import { Menu, Zap, LogIn } from 'lucide-react';
+import { Menu, LogIn } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useAuth } from '../../contexts/AuthContext';
-import { formatCredits, FREE_TRIAL_CREDITS } from '../../utils/fileUtils';
 import { AuthModal } from '../ui/AuthModal';
 import { WelcomeModal } from '../ui/WelcomeModal';
 
@@ -17,14 +16,7 @@ export function TopBar({ onMenuClick }: TopBarProps) {
   const [showWelcomeModal, setShowWelcomeModal] = useState(false);
   const [isNewUser, setIsNewUser] = useState(false);
   const navigate = useNavigate();
-  const { isAuthenticated, credits, user } = useAuth();
-
-  // Force re-render when credits change
-  const [creditDisplay, setCreditDisplay] = useState(0);
-  
-  useEffect(() => {
-    setCreditDisplay(credits);
-  }, [credits]);
+  const { isAuthenticated, user } = useAuth();
 
   // Track if user was just authenticated (for welcome modal)
   const handleSignupComplete = () => {
@@ -49,12 +41,9 @@ export function TopBar({ onMenuClick }: TopBarProps) {
     ? user.name.slice(0, 2).toUpperCase()
     : 'U';
 
-  // Display credits: if authenticated use real credits, else show free trial credits
-  const displayCredits = isAuthenticated ? credits : FREE_TRIAL_CREDITS;
-
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-40 bg-white border-b border-[rgba(0,0,0,0.08)] backdrop-blur-sm bg-opacity-95">
+      <header className="fixed top-0 left-0 right-0 z-40 bg-[#e1f3f3] border-b border-[rgba(0,0,0,0.08)] backdrop-blur-sm bg-opacity-95">
       <div className="flex items-center justify-between h-20 px-6 lg:px-12">
         {/* Hamburger menu */}
         <button
@@ -80,23 +69,8 @@ export function TopBar({ onMenuClick }: TopBarProps) {
           </h1>
         </motion.div>
 
-        {/* Right side - Credits Box Always Visible */}
+        {/* Right side - Login and Profile */}
         <div className="flex items-center gap-3">
-          {/* Credits Box - Prominent display in top right corner */}
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#0891b2]/15 to-[#22d3ee]/15 border-2 border-[#0891b2] shadow-lg cursor-pointer select-none hover:shadow-xl hover:border-[#0e7490] transition-all"
-            onClick={() => navigate('/billing')}
-            title="Click to view billing & upgrade"
-          >
-            <Zap className="w-5 h-5 flex-shrink-0 text-[#0891b2]" fill="#0891b2" />
-            <div className="flex flex-col leading-none">
-              <span className="text-xs text-[#6B6B6B] mb-0.5" style={{ fontFamily: 'var(--font-sans)' }}>Credits</span>
-              <span className="text-base font-bold text-[#083344]" style={{ fontFamily: 'var(--font-sans)' }}>
-                {formatCredits(isAuthenticated ? creditDisplay : FREE_TRIAL_CREDITS)}
-              </span>
-            </div>
-          </motion.div>
 
           {/* Before login: Show Login button */}
           {!isAuthenticated && (

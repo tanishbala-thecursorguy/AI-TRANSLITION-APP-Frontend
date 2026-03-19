@@ -88,7 +88,7 @@ export const DesktopSidebar = ({
   return (
     <motion.div
       className={cn(
-        "h-full px-4 py-4 hidden md:flex md:flex-col bg-white border-r border-[rgba(0,0,0,0.08)] w-[300px] flex-shrink-0 fixed left-0 top-0 bottom-0 z-40",
+        "h-full px-4 py-4 hidden md:flex md:flex-col bg-[#e1f3f3] border-r border-[rgba(0,0,0,0.08)] w-[300px] flex-shrink-0 fixed left-0 top-0 bottom-0 z-40",
         className
       )}
       animate={{
@@ -113,7 +113,7 @@ export const MobileSidebar = ({
     <>
       <div
         className={cn(
-          "h-10 px-4 py-4 flex flex-row md:hidden items-center justify-between bg-white border-b border-[rgba(0,0,0,0.08)] w-full fixed top-0 left-0 right-0 z-50"
+          "h-10 px-4 py-4 flex flex-row md:hidden items-center justify-between bg-[#e1f3f3] border-b border-[rgba(0,0,0,0.08)] w-full fixed top-0 left-0 right-0 z-50"
         )}
         {...props}
       >
@@ -134,7 +134,7 @@ export const MobileSidebar = ({
                 ease: "easeInOut",
               }}
               className={cn(
-                "fixed h-full w-full inset-0 bg-white p-10 z-[100] flex flex-col justify-between",
+                "fixed h-full w-full inset-0 bg-[#e1f3f3] p-10 z-[100] flex flex-col justify-between",
                 className
               )}
             >
@@ -164,6 +164,7 @@ export const SidebarLink = ({
   className?: string;
   onClick?: () => void;
   isActive?: boolean;
+  key?: React.Key;
 }) => {
   const { open, animate } = useSidebar();
   return (

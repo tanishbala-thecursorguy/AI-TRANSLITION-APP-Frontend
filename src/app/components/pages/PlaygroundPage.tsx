@@ -18,9 +18,7 @@ import { FreeTierLimitModal } from '../ui/FreeTierLimitModal';
 
 const steps = [
   { number: 1, label: 'Upload', icon: Upload },
-  { number: 2, label: 'Type', icon: FileText },
-  { number: 3, label: 'Language', icon: Globe },
-  { number: 4, label: 'Confirm', icon: CheckCircle },
+  { number: 2, label: 'Language', icon: Globe },
 ];
 
 export interface PlaygroundData {
@@ -129,14 +127,10 @@ export function PlaygroundPage() {
     }
 
     // Proceed to next step
-    if (currentStep < 4) {
+    if (currentStep < steps.length) {
       setIsLoading(true);
       
       if (currentStep === 1) {
-        setLoadingMessage('Analyzing your document...');
-      } else if (currentStep === 2) {
-        setLoadingMessage('Detecting language...');
-      } else if (currentStep === 3) {
         setLoadingMessage('Preparing translation settings...');
       }
 
@@ -145,10 +139,11 @@ export function PlaygroundPage() {
         setCurrentStep((prev) => prev + 1);
       }, 2500);
     } else {
-      // Deduct credits
+      // Final step - submit for translation
       const success = deductCredits(data.requiredCredits);
       
       if (!success) {
+        toast.error('Insufficient credits');
         setShowUpgradeModal(true);
         return;
       }
@@ -167,7 +162,7 @@ export function PlaygroundPage() {
           detectedLanguage: data.detectedLanguage,
           destinationLanguage: data.destinationLanguage,
         });
-        navigate('/status');
+        navigate('/completed');
       }, 3000);
     }
   };
@@ -183,11 +178,7 @@ export function PlaygroundPage() {
       case 1:
         return !!data.file;
       case 2:
-        return !!data.type;
-      case 3:
         return !!data.destinationLanguage;
-      case 4:
-        return true;
       default:
         return false;
     }
@@ -215,13 +206,6 @@ export function PlaygroundPage() {
                 Transform your documents with AI-powered translation
               </p>
             </div>
-            <button
-              onClick={() => navigate('/status')}
-              className="px-4 md:px-6 py-2 md:py-3 border border-[rgba(0,0,0,0.15)] rounded-md hover:bg-[#ecfeff] transition-all duration-300 text-sm md:text-base self-start"
-              style={{ fontFamily: 'var(--font-sans)' }}
-            >
-              View Status
-            </button>
           </div>
         </motion.div>
 
@@ -283,7 +267,7 @@ export function PlaygroundPage() {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.3 }}
-          className="bg-white border border-[rgba(0,0,0,0.08)] rounded-lg p-8 mb-8"
+          className="bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-lg p-8 mb-8"
         >
           {isLoading ? (
             <LoadingStep message={loadingMessage} />
@@ -296,9 +280,7 @@ export function PlaygroundPage() {
                   onFileAnalyzed={handleFileAnalyzed}
                 />
               )}
-              {currentStep === 2 && <StepType data={data} updateData={updateData} />}
-              {currentStep === 3 && <StepLanguage data={data} updateData={updateData} />}
-              {currentStep === 4 && <StepConfirm data={data} />}
+              {currentStep === 2 && <StepLanguage data={data} updateData={updateData} />}
             </>
           )}
         </motion.div>
@@ -325,7 +307,7 @@ export function PlaygroundPage() {
               }`}
               style={{ fontFamily: 'var(--font-sans)' }}
             >
-              {currentStep === 4 ? 'Start Translation' : 'Next'}
+              {currentStep === steps.length ? 'Submit' : 'Next'}
             </button>
           </div>
         )}

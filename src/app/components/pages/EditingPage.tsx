@@ -72,7 +72,7 @@ export function EditingPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="bg-white rounded-2xl shadow-xl overflow-hidden border-2 border-[#0891b2]/20 flex flex-col"
+          className="bg-[#e1f3f3] rounded-2xl shadow-xl overflow-hidden border-2 border-[#0891b2]/20 flex flex-col"
           style={{ minHeight: 'calc(100vh - 120px)' }}
         >
           {/* Header */}
@@ -118,7 +118,7 @@ export function EditingPage() {
                     </p>
 
                     {/* Original line quote */}
-                    <div className="p-2 md:p-3 bg-white rounded-lg mb-2 md:mb-3 text-xs md:text-sm leading-relaxed border border-[#0891b2]/20 text-[#083344]" style={{ fontFamily: 'var(--font-serif)' }}>
+                    <div className="p-2 md:p-3 bg-[#e1f3f3] rounded-lg mb-2 md:mb-3 text-xs md:text-sm leading-relaxed border border-[#0891b2]/20 text-[#083344]" style={{ fontFamily: 'var(--font-serif)' }}>
                       "{issues[currentIssue]?.originalLine}"
                     </div>
 
@@ -128,7 +128,7 @@ export function EditingPage() {
                         <button
                           key={idx}
                           onClick={() => handleSuggestionClick(suggestion)}
-                          className="w-full text-left p-2 md:p-3 bg-white rounded-lg hover:bg-[#ecfeff] hover:shadow-sm hover:border-[#0891b2]/30 transition-all duration-200 text-xs md:text-sm leading-relaxed break-words border border-[#0891b2]/10 text-[#083344]"
+                          className="w-full text-left p-2 md:p-3 bg-[#e1f3f3] rounded-lg hover:bg-[#ecfeff] hover:shadow-sm hover:border-[#0891b2]/30 transition-all duration-200 text-xs md:text-sm leading-relaxed break-words border border-[#0891b2]/10 text-[#083344]"
                           style={{ fontFamily: 'var(--font-serif)' }}
                         >
                           {suggestion}
@@ -145,7 +145,7 @@ export function EditingPage() {
 
               {/* Footer Navigation */}
               {issues.length > 0 && (
-                <div className="px-4 py-3 border-t-2 border-[#0891b2]/20 bg-white/50 flex-shrink-0">
+                <div className="px-4 py-3 border-t-2 border-[#0891b2]/20 bg-[#e1f3f3]/50 flex-shrink-0">
                   <div className="flex items-center justify-between">
                     <button
                       onClick={() => setCurrentIssue(Math.max(0, currentIssue - 1))}

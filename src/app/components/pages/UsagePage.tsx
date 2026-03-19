@@ -42,7 +42,7 @@ export function UsagePage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-white border border-[rgba(0,0,0,0.08)] rounded-lg overflow-hidden"
+          className="bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-lg overflow-hidden"
         >
           <div className="overflow-x-auto">
             <table className="w-full min-w-[640px]">

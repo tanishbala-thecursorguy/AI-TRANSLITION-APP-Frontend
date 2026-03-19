@@ -3,7 +3,6 @@ import { Outlet, useNavigate, useLocation } from 'react-router';
 import { Play, CheckCircle, FileText, CreditCard, HelpCircle, UserCircle } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Sidebar, SidebarBody, SidebarLink } from '../ui/animated-sidebar';
-import { CreditsBox } from '../ui/CreditsBox';
 import { cn } from '../ui/utils';
 
 export function MainLayout() {
@@ -48,9 +47,6 @@ export function MainLayout() {
 
   return (
     <div className="min-h-screen flex w-full" style={{ fontFamily: 'var(--font-sans)', backgroundColor: 'rgba(220, 255, 253, 0.1)' }}>
-      {/* Credits Box - Fixed in top right corner */}
-      <CreditsBox />
-      
       <Sidebar open={open} setOpen={setOpen}>
         <SidebarBody className="justify-between gap-10">
           <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
@@ -82,7 +78,7 @@ export function MainLayout() {
             <div className="flex flex-col gap-2">
               {links.map((link, idx) => (
                 <SidebarLink
-                  key={idx}
+                  key={link.label}
                   link={link}
                   onClick={() => navigate(link.href)}
                   isActive={location.pathname === link.href}

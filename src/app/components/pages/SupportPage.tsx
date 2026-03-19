@@ -64,7 +64,7 @@ export function SupportPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-white border border-[rgba(0,0,0,0.08)] rounded-lg p-4 md:p-8"
+          className="bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-lg p-4 md:p-8"
         >
           {submitted ? (
             <motion.div
@@ -98,7 +98,7 @@ export function SupportPage() {
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 bg-white border border-[rgba(0,0,0,0.08)] rounded-md focus:outline-none focus:ring-1 focus:ring-black transition-all"
+                  className="w-full px-4 py-3 bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-md focus:outline-none focus:ring-1 focus:ring-black transition-all"
                   style={{ fontFamily: 'var(--font-sans)' }}
                   placeholder="you@example.com"
                   required
@@ -119,7 +119,7 @@ export function SupportPage() {
                   type="text"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className="w-full px-4 py-3 bg-white border border-[rgba(0,0,0,0.08)] rounded-md focus:outline-none focus:ring-1 focus:ring-black transition-all"
+                  className="w-full px-4 py-3 bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-md focus:outline-none focus:ring-1 focus:ring-black transition-all"
                   style={{ fontFamily: 'var(--font-sans)' }}
                   placeholder="How can we help?"
                   required
@@ -140,7 +140,7 @@ export function SupportPage() {
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   rows={6}
-                  className="w-full px-4 py-3 bg-white border border-[rgba(0,0,0,0.08)] rounded-md focus:outline-none focus:ring-1 focus:ring-black transition-all resize-none"
+                  className="w-full px-4 py-3 bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-md focus:outline-none focus:ring-1 focus:ring-black transition-all resize-none"
                   style={{ fontFamily: 'var(--font-sans)' }}
                   placeholder="Tell us more about your issue..."
                   required
