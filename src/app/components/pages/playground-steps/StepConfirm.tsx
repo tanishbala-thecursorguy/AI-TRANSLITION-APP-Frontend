@@ -13,7 +13,7 @@ export function StepConfirm({ data }: StepConfirmProps) {
       <h2 className="text-2xl mb-2" style={{ fontFamily: 'var(--font-serif)' }}>
         Confirm & Start
       </h2>
-      <p className="text-[#6B6B6B] mb-8" style={{ fontFamily: 'var(--font-sans)' }}>
+      <p className="text-[#6B6B6B] mb-8 imperial-script-font">
         Review your translation settings before starting
       </p>
 
@@ -138,7 +138,7 @@ export function StepConfirm({ data }: StepConfirmProps) {
         </div>
 
         {/* Credit Cost */}
-        <div className="p-6 bg-black text-white rounded-lg">
+        <div className="p-6 bg-[#2ebb77] text-white rounded-lg">
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
               <Coins className="w-6 h-6 text-white" />

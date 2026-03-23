@@ -17,7 +17,7 @@ export function StepType({ data, updateData }: StepTypeProps) {
       <h2 className="text-2xl mb-2" style={{ fontFamily: 'var(--font-serif)' }}>
         Document Type
       </h2>
-      <p className="text-[#6B6B6B] mb-8" style={{ fontFamily: 'var(--font-sans)' }}>
+      <p className="text-[#6B6B6B] mb-8 imperial-script-font">
         Select the type of document you're translating
       </p>
 

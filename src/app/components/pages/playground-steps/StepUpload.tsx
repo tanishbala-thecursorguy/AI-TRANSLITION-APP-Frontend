@@ -109,19 +109,19 @@ export function StepUpload({ data, updateData, onFileAnalyzed }: StepUploadProps
       <h2 className="text-2xl mb-2" style={{ fontFamily: 'var(--font-serif)' }}>
         Upload Document
       </h2>
-      <p className="text-[#6B6B6B] mb-8" style={{ fontFamily: 'var(--font-sans)' }}>
+      <p className="text-[#6B6B6B] mb-8 imperial-script-font">
         Upload your document to begin the translation process
       </p>
 
       {/* Free trial info banner */}
       {!isAuthenticated && !data.file && (
-        <div className="mb-6 p-4 bg-[#EFF6FF] border border-[#93C5FD] rounded-lg flex items-start gap-3">
-          <Info className="w-5 h-5 text-[#3B82F6] flex-shrink-0 mt-0.5" />
+        <div className="mb-6 p-4 bg-[#cccccc] border border-[#999999] rounded-lg flex items-start gap-3">
+          <Info className="w-5 h-5 text-[#333333] flex-shrink-0 mt-0.5" />
           <div>
-            <p className="text-sm text-[#1E40AF] font-medium mb-1" style={{ fontFamily: 'var(--font-sans)' }}>
+            <p className="text-sm text-[#333333] font-medium mb-1" style={{ fontFamily: 'var(--font-sans)' }}>
               Free Trial: {FREE_TRIAL_MAX_PAGES} Pages
             </p>
-            <p className="text-sm text-[#3B82F6]" style={{ fontFamily: 'var(--font-sans)' }}>
+            <p className="text-sm text-[#444444]" style={{ fontFamily: 'var(--font-sans)' }}>
               You can translate up to {FREE_TRIAL_MAX_PAGES} pages with the free trial. If your document has more pages, you'll be prompted to upgrade or continue with {FREE_TRIAL_MAX_PAGES} pages.
             </p>
           </div>
@@ -132,7 +132,7 @@ export function StepUpload({ data, updateData, onFileAnalyzed }: StepUploadProps
       <div className="relative">
         {/* Actual upload component */}
         <div 
-          className="w-full max-w-4xl mx-auto min-h-96 border border-dashed bg-[#e1f3f3] border-neutral-200 rounded-lg"
+          className="w-full max-w-4xl mx-auto min-h-96 border border-dashed border-neutral-200 rounded-lg bg-gradient-to-b from-white/80 to-transparent"
         >
           <FileUpload 
             onChange={handleFileUpload}
@@ -157,7 +157,7 @@ export function StepUpload({ data, updateData, onFileAnalyzed }: StepUploadProps
       {data.file && (
         <div className="mt-8">
           {/* File details card */}
-          <div className="p-4 bg-[#e1f3f3] rounded-lg border border-[rgba(0,0,0,0.08)] mb-8">
+          <div className="p-4 rounded-lg border border-[rgba(0,0,0,0.08)] mb-8 bg-gradient-to-b from-white/80 to-transparent">
             <div className="flex items-start gap-3">
               <FileText className="w-5 h-5 flex-shrink-0 mt-0.5" />
               <div className="flex-1">
@@ -202,7 +202,7 @@ export function StepUpload({ data, updateData, onFileAnalyzed }: StepUploadProps
                 value={data.contextInfo || ''}
                 onChange={(e) => updateData({ contextInfo: e.target.value })}
                 rows={5}
-                className="w-full px-4 py-3 bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-md focus:outline-none focus:ring-1 focus:ring-black transition-all resize-none"
+                className="w-full px-4 py-3 border border-[rgba(0,0,0,0.08)] rounded-md focus:outline-none focus:ring-1 focus:ring-black transition-all resize-none bg-gradient-to-b from-white/80 to-transparent"
                 style={{ fontFamily: 'var(--font-sans)' }}
                 placeholder="Provide any relevant context about your document, such as subject matter, specific terminology, writing style, or important notes..."
               />

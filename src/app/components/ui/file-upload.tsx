@@ -86,8 +86,7 @@ export const FileUpload = ({
                   key={"file" + idx}
                   layoutId={idx === 0 ? "file-upload" : "file-upload-" + idx}
                   className={cn(
-                    "relative overflow-hidden z-40 bg-[#e1f3f3] flex flex-col items-start justify-start md:h-24 p-4 mt-4 w-full mx-auto rounded-md",
-                    "shadow-sm border border-[rgba(0,0,0,0.08)]"
+                    "relative overflow-hidden z-40 flex flex-col items-start justify-start md:h-24 p-4 mt-4 w-full mx-auto rounded-md bg-gradient-to-b from-white/80 to-transparent border border-[rgba(0,0,0,0.08)] shadow-sm"
                   )}
                 >
                   <div className="flex justify-between w-full items-center gap-4">
@@ -144,8 +143,7 @@ export const FileUpload = ({
                   damping: 20,
                 }}
                 className={cn(
-                  "relative group-hover/file:shadow-2xl z-40 bg-[#e1f3f3] flex items-center justify-center h-32 mt-4 w-full max-w-[8rem] mx-auto rounded-md",
-                  "shadow-[0px_10px_50px_rgba(0,0,0,0.1)]"
+                  "relative group-hover/file:shadow-2xl z-40 flex items-center justify-center h-32 mt-4 w-full max-w-[8rem] mx-auto rounded-md bg-gradient-to-b from-white/80 to-transparent border border-[rgba(0,0,0,0.08)]"
                 )}
               >
                 {isDragActive ? (

@@ -11,7 +11,7 @@ export function LoadingStep({ message }: LoadingStepProps) {
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.3 }}
         className="flex flex-col items-center gap-8"
       >
         {/* Gooey Loader */}
@@ -27,7 +27,7 @@ export function LoadingStep({ message }: LoadingStepProps) {
           <motion.h3
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
+            transition={{ delay: 0.1, duration: 0.3 }}
             className="text-2xl mb-2"
             style={{ fontFamily: 'var(--font-serif)' }}
           >
@@ -36,9 +36,8 @@ export function LoadingStep({ message }: LoadingStepProps) {
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="text-[#6B6B6B]"
-            style={{ fontFamily: 'var(--font-sans)' }}
+            transition={{ delay: 0.15, duration: 0.3 }}
+            className="text-[#6B6B6B] imperial-script-font"
           >
             {message}
           </motion.p>

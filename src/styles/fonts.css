@@ -1,1 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500;1,600&family=Crimson+Pro:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap');
+/* Google Fonts: Cookie, Imperial Script, Montserrat, Narnoor, Petit Formal Script, UnifrakturMaguntia, Quintessential */
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=Imperial+Script&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Narnoor:wght@400;500;600;700;800&family=Petit+Formal+Script&family=UnifrakturMaguntia&family=Quintessential&display=swap');
+
+/* Font variables */
+:root {
+  --font-cookie: 'Cookie', cursive;
+  --font-imperial-script: 'Imperial Script', cursive;
+  --font-montserrat: 'Montserrat', sans-serif;
+  --font-narnoor: 'Narnoor', sans-serif;
+  --font-petit-formal: 'Petit Formal Script', cursive;
+  --font-unifraktur: 'UnifrakturMaguntia', cursive;
+  --font-quintessential: 'Quintessential', cursive;
+  --font-normal: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* UnifrakturMaguntia font for main headings */
+h1, h2, .logo, .brand-name {
+  font-family: 'UnifrakturMaguntia', cursive !important;
+}
+
+/* Quintessential font for sidebar */
+.sidebar, aside, .sidebar-menu, .sidebar-menu * {
+  font-family: 'Quintessential', cursive !important;
+}
+
+/* Imperial Script font class for subheadings */
+.imperial-script-font {
+  font-family: 'Imperial Script', cursive !important;
+  font-size: 1.5em !important;
+}
+
+/* Apply Imperial Script ONLY for subheadings and descriptions */
+h2 + p,
+h3 + p,
+h4 + p,
+p.subtitle,
+.subtitle,
+.description,
+.subheading,
+h2 ~ p,
+h3 ~ p,
+h4 ~ p {
+  font-family: 'Imperial Script', cursive !important;
+  font-size: 1.5em !important;
+}
+
+/* Keep all other text with normal font */
+*, *::before, *::after {
+  font-family: var(--font-normal) !important;
+}

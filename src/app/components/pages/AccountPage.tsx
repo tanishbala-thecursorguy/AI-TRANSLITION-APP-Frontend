@@ -37,7 +37,7 @@ export function AccountPage() {
           <h1 className="text-2xl md:text-4xl mb-2" style={{ fontFamily: 'var(--font-serif)' }}>
             Account
           </h1>
-          <p className="text-sm md:text-base text-[#6B6B6B]" style={{ fontFamily: 'var(--font-sans)' }}>
+          <p className="text-sm md:text-base text-[#6B6B6B] imperial-script-font">
             Manage your account settings and subscription
           </p>
         </motion.div>
@@ -48,7 +48,7 @@ export function AccountPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-lg p-4 md:p-8"
+            className="border border-[rgba(0,0,0,0.08)] rounded-lg p-4 md:p-8 bg-gradient-to-b from-white/80 to-transparent"
           >
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
               <div className="flex items-center gap-3 md:gap-4">
@@ -100,7 +100,7 @@ export function AccountPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-lg p-4 md:p-8"
+            className="border border-[rgba(0,0,0,0.08)] rounded-lg p-4 md:p-8 bg-gradient-to-b from-white/80 to-transparent"
           >
             <div className="flex flex-col sm:flex-row items-start justify-between gap-4">
               <div className="flex items-start gap-4">
@@ -123,7 +123,7 @@ export function AccountPage() {
               </div>
               <button
                 onClick={() => navigate('/billing')}
-                className="px-6 py-3 bg-black text-white rounded-md hover:bg-[#3A3A3A] transition-all duration-300 hover:-translate-y-0.5 shadow-sm hover:shadow-md self-start"
+                className="px-6 py-3 bg-[#2ebb77] text-white rounded-md hover:bg-[#25a063] transition-all duration-300 hover:-translate-y-0.5 shadow-sm hover:shadow-md self-start"
                 style={{ fontFamily: 'var(--font-sans)' }}
               >
                 Upgrade Plan
@@ -136,7 +136,7 @@ export function AccountPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-lg p-4 md:p-8"
+            className="border border-[rgba(0,0,0,0.08)] rounded-lg p-4 md:p-8 bg-gradient-to-b from-white/80 to-transparent"
           >
             <h3 className="text-xl mb-6" style={{ fontFamily: 'var(--font-serif)' }}>
               Account Actions
@@ -144,7 +144,7 @@ export function AccountPage() {
             
             <div className="space-y-4">
               <button
-                className="w-full flex items-center gap-3 px-4 py-3 border border-[rgba(0,0,0,0.08)] rounded-md hover:bg-[#e1f3f3] transition-all text-left"
+                className="w-full flex items-center gap-3 px-4 py-3 border border-[rgba(0,0,0,0.08)] rounded-md hover:bg-gradient-to-b hover:from-white/80 hover:to-transparent transition-all text-left"
                 style={{ fontFamily: 'var(--font-sans)' }}
               >
                 <User className="w-5 h-5 text-[#6B6B6B]" />
@@ -152,7 +152,7 @@ export function AccountPage() {
               </button>
               
               <button
-                className="w-full flex items-center gap-3 px-4 py-3 border border-[rgba(0,0,0,0.08)] rounded-md hover:bg-[#e1f3f3] transition-all text-left"
+                className="w-full flex items-center gap-3 px-4 py-3 border border-[rgba(0,0,0,0.08)] rounded-md hover:bg-gradient-to-b hover:from-white/80 hover:to-transparent transition-all text-left"
                 style={{ fontFamily: 'var(--font-sans)' }}
               >
                 <Mail className="w-5 h-5 text-[#6B6B6B]" />

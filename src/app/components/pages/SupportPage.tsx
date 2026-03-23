@@ -54,7 +54,7 @@ export function SupportPage() {
           <h1 className="text-2xl md:text-4xl mb-2" style={{ fontFamily: 'var(--font-serif)' }}>
             Support
           </h1>
-          <p className="text-sm md:text-base text-[#6B6B6B]" style={{ fontFamily: 'var(--font-sans)' }}>
+          <p className="text-sm md:text-base text-[#6B6B6B] imperial-script-font">
             We're here to help. Send us a message and we'll get back to you soon.
           </p>
         </motion.div>
@@ -64,7 +64,7 @@ export function SupportPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-lg p-4 md:p-8"
+          className="border border-[rgba(0,0,0,0.08)] rounded-lg p-4 md:p-8 bg-gradient-to-b from-white/80 to-transparent"
         >
           {submitted ? (
             <motion.div
@@ -98,7 +98,7 @@ export function SupportPage() {
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-4 py-3 bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-md focus:outline-none focus:ring-1 focus:ring-black transition-all"
+                  className="w-full px-4 py-3 border border-[rgba(0,0,0,0.08)] rounded-md focus:outline-none focus:ring-1 focus:ring-black transition-all bg-gradient-to-b from-white/80 to-transparent"
                   style={{ fontFamily: 'var(--font-sans)' }}
                   placeholder="you@example.com"
                   required
@@ -119,7 +119,7 @@ export function SupportPage() {
                   type="text"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className="w-full px-4 py-3 bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-md focus:outline-none focus:ring-1 focus:ring-black transition-all"
+                  className="w-full px-4 py-3 border border-[rgba(0,0,0,0.08)] rounded-md focus:outline-none focus:ring-1 focus:ring-black transition-all bg-gradient-to-b from-white/80 to-transparent"
                   style={{ fontFamily: 'var(--font-sans)' }}
                   placeholder="How can we help?"
                   required
@@ -174,7 +174,7 @@ export function SupportPage() {
               {/* Submit button */}
               <button
                 type="submit"
-                className="w-full py-3 bg-black text-white rounded-md hover:bg-[#3A3A3A] transition-all duration-300 hover:-translate-y-0.5 shadow-sm hover:shadow-md flex items-center justify-center gap-2"
+                className="w-full py-3 bg-[#2ebb77] text-white rounded-md hover:bg-[#25a063] transition-all duration-300 hover:-translate-y-0.5 shadow-sm hover:shadow-md flex items-center justify-center gap-2"
                 style={{ fontFamily: 'var(--font-sans)' }}
               >
                 <Send className="w-5 h-5" />

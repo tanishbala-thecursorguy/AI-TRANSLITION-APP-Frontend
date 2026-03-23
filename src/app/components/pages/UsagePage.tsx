@@ -32,7 +32,7 @@ export function UsagePage() {
           <h1 className="text-2xl md:text-4xl mb-2" style={{ fontFamily: 'var(--font-serif)' }}>
             Usage
           </h1>
-          <p className="text-sm md:text-base text-[#6B6B6B]" style={{ fontFamily: 'var(--font-sans)' }}>
+          <p className="text-sm md:text-base text-[#6B6B6B] imperial-script-font">
             Track all your translation activity
           </p>
         </motion.div>
@@ -42,7 +42,7 @@ export function UsagePage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-lg overflow-hidden"
+          className="border border-[rgba(0,0,0,0.08)] rounded-lg overflow-hidden bg-gradient-to-b from-white/80 to-transparent"
         >
           <div className="overflow-x-auto">
             <table className="w-full min-w-[640px]">

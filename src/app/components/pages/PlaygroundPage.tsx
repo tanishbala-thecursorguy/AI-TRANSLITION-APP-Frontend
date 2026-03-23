@@ -137,7 +137,7 @@ export function PlaygroundPage() {
       setTimeout(() => {
         setIsLoading(false);
         setCurrentStep((prev) => prev + 1);
-      }, 2500);
+      }, 800);
     } else {
       // Final step - submit for translation
       const success = deductCredits(data.requiredCredits);
@@ -163,7 +163,7 @@ export function PlaygroundPage() {
           destinationLanguage: data.destinationLanguage,
         });
         navigate('/completed');
-      }, 3000);
+      }, 1000);
     }
   };
 
@@ -186,7 +186,7 @@ export function PlaygroundPage() {
 
   return (
     <>
-      <div className="max-w-5xl mx-auto px-4">
+      <div className="max-w-6xl mx-auto px-4">
         {/* Page title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -202,115 +202,193 @@ export function PlaygroundPage() {
               >
                 Playground
               </h1>
-              <p className="text-sm md:text-base text-[#6B6B6B]" style={{ fontFamily: 'var(--font-sans)' }}>
+              <p className="text-sm md:text-base text-[#6B6B6B] imperial-script-font">
                 Transform your documents with AI-powered translation
               </p>
             </div>
           </div>
         </motion.div>
 
-        {/* Progress indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-          className="mb-8 md:mb-12"
-        >
-          <div className="flex items-center justify-between">
-            {steps.map((step, index) => {
-              const Icon = step.icon;
-              const isActive = currentStep === step.number;
-              const isCompleted = currentStep > step.number;
-
-              return (
-                <div key={step.number} className="flex items-center flex-1">
-                  <div className="flex flex-col items-center">
-                    <div
-                      className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
-                        isActive
-                          ? 'bg-[#0891b2] text-white'
-                          : isCompleted
-                          ? 'bg-[#0891b2] text-white'
-                          : 'bg-[#E8E6E2] text-[#6B6B6B]'
-                      }`}
-                    >
-                      <Icon className="w-4 h-4 md:w-5 md:h-5" />
-                    </div>
-                    <span
-                      className={`mt-2 text-xs md:text-sm ${
-                        isActive || isCompleted ? 'text-black' : 'text-[#6B6B6B]'
-                      }`}
-                      style={{ fontFamily: 'var(--font-sans)' }}
-                    >
-                      {step.label}
-                    </span>
-                  </div>
-                  {index < steps.length - 1 && (
-                    <div className="flex-1 h-0.5 bg-[#E8E6E2] mx-2 md:mx-4 relative">
-                      <div
-                        className={`absolute inset-0 bg-[#0891b2] transition-all duration-300 ${
-                          isCompleted ? 'w-full' : 'w-0'
-                        }`}
-                      />
-                    </div>
+        {/* Main content area with sidebar */}
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Main content - upload and language forms */}
+          <div className="flex-1">
+            {/* Step content */}
+            <motion.div
+              key={currentStep}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
+              className="border border-[rgba(0,0,0,0.08)] rounded-lg p-8 mb-8 bg-gradient-to-b from-white/80 to-transparent min-h-[500px]"
+            >
+              {isLoading ? (
+                <LoadingStep message={loadingMessage} />
+              ) : (
+                <>
+                  {currentStep === 1 && (
+                    <StepUpload
+                      data={data}
+                      updateData={updateData}
+                      onFileAnalyzed={handleFileAnalyzed}
+                    />
                   )}
-                </div>
-              );
-            })}
-          </div>
-        </motion.div>
-
-        {/* Step content */}
-        <motion.div
-          key={currentStep}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
-          transition={{ duration: 0.3 }}
-          className="bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-lg p-8 mb-8"
-        >
-          {isLoading ? (
-            <LoadingStep message={loadingMessage} />
-          ) : (
-            <>
-              {currentStep === 1 && (
-                <StepUpload
-                  data={data}
-                  updateData={updateData}
-                  onFileAnalyzed={handleFileAnalyzed}
-                />
+                  {currentStep === 2 && <StepLanguage data={data} updateData={updateData} />}
+                </>
               )}
-              {currentStep === 2 && <StepLanguage data={data} updateData={updateData} />}
-            </>
-          )}
-        </motion.div>
+            </motion.div>
 
-        {/* Navigation buttons */}
-        {!isLoading && (
-          <div className="flex gap-4 justify-end">
-            {currentStep > 1 && (
-              <button
-                onClick={handleBack}
-                className="px-6 py-3 border border-[rgba(0,0,0,0.15)] rounded-md hover:bg-[rgba(0,0,0,0.02)] transition-all duration-300"
+            {/* Navigation buttons */}
+            {!isLoading && (
+              <div className="flex gap-4 justify-end">
+                {currentStep > 1 && (
+                  <button
+                    onClick={handleBack}
+                    className="px-6 py-3 border border-[rgba(0,0,0,0.15)] rounded-md hover:bg-[rgba(0,0,0,0.02)] transition-all duration-300"
+                    style={{ fontFamily: 'var(--font-sans)' }}
+                  >
+                    Back
+                  </button>
+                )}
+                <button
+                  onClick={handleNextClick}
+                  disabled={!canProceed()}
+                  className={`px-6 py-3 rounded-md transition-all duration-300 ${
+                    canProceed()
+                      ? 'bg-[#2ebb77] text-white hover:bg-[#25a063] hover:-translate-y-0.5 shadow-sm hover:shadow-md'
+                      : 'bg-[#E8E6E2] text-[#6B6B6B] cursor-not-allowed'
+                  }`}
+                  style={{ fontFamily: 'var(--font-sans)' }}
+                >
+                  {currentStep === steps.length ? 'Submit' : 'Next'}
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Right sidebar - Step roadmap */}
+          <div className="lg:w-80">
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="sticky top-8"
+            >
+              <h3
+                className="text-xl mb-6 font-semibold"
                 style={{ fontFamily: 'var(--font-sans)' }}
               >
-                Back
-              </button>
-            )}
-            <button
-              onClick={handleNextClick}
-              disabled={!canProceed()}
-              className={`px-6 py-3 rounded-md transition-all duration-300 ${
-                canProceed()
-                  ? 'bg-[#0891b2] text-white hover:bg-[#0e7490] hover:-translate-y-0.5 shadow-sm hover:shadow-md'
-                  : 'bg-[#E8E6E2] text-[#6B6B6B] cursor-not-allowed'
-              }`}
-              style={{ fontFamily: 'var(--font-sans)' }}
-            >
-              {currentStep === steps.length ? 'Submit' : 'Next'}
-            </button>
+                Translation Steps
+              </h3>
+              
+              <div className="relative">
+                {/* Vertical line connecting steps */}
+                <div className="absolute left-6 top-6 bottom-6 w-0.5 bg-[#E8E6E2]">
+                  <motion.div
+                    initial={{ height: 0 }}
+                    animate={{ height: `${((currentStep - 1) / (steps.length - 1)) * 100}%` }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                    className="absolute top-0 left-0 w-full bg-[#2ebb77] origin-top"
+                  />
+                </div>
+
+                {/* Steps */}
+                <div className="space-y-8">
+                  {steps.map((step, index) => {
+                    const Icon = step.icon;
+                    const isActive = currentStep === step.number;
+                    const isCompleted = currentStep > step.number;
+                    const isPending = currentStep < step.number;
+
+                    return (
+                      <motion.div
+                        key={step.number}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 + 0.4 }}
+                        className="relative flex items-start gap-4"
+                      >
+                        {/* Step number indicator */}
+                        <motion.div
+                          animate={{
+                            scale: isActive ? 1.1 : 1,
+                            backgroundColor: isActive || isCompleted ? '#2ebb77' : '#E8E6E2',
+                            color: isActive || isCompleted ? '#ffffff' : '#6B6B6B',
+                          }}
+                          transition={{ duration: 0.3 }}
+                          className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 z-10 border-4 ${
+                            isActive ? 'border-black' : isCompleted ? 'border-[#2ebb77]' : 'border-white'
+                          }`}
+                        >
+                          {isCompleted ? (
+                            <motion.div
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              transition={{ type: "spring", stiffness: 300 }}
+                            >
+                              <CheckCircle className="w-6 h-6 text-white" />
+                            </motion.div>
+                          ) : (
+                            <Icon className="w-5 h-5" />
+                          )}
+                        </motion.div>
+
+                        {/* Step details */}
+                        <div className="flex-1 pt-1">
+                          <h4
+                            className={`font-semibold text-base mb-1 ${
+                              isActive ? 'text-black' : isPending ? 'text-[#6B6B6B]' : 'text-[#2ebb77]'
+                            }`}
+                            style={{ fontFamily: 'var(--font-sans)' }}
+                          >
+                            Step {step.number}: {step.label}
+                          </h4>
+                          <p
+                            className={`text-sm ${
+                              isActive ? 'text-black' : isPending ? 'text-[#9CA3AF]' : 'text-[#2ebb77]'
+                            }`}
+                            style={{ fontFamily: 'var(--font-sans)' }}
+                          >
+                            {step.number === 1 ? 'Upload your document' : 'Select target language'}
+                          </p>
+                        </div>
+
+                        {/* Status indicator */}
+                        {isActive && (
+                          <motion.div
+                            initial={{ opacity: 0, scale: 0 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ type: "spring", stiffness: 300, delay: 0.2 }}
+                            className="absolute -right-2 top-0"
+                          >
+                            <div className="w-3 h-3 bg-[#2ebb77] rounded-full animate-pulse" />
+                          </motion.div>
+                        )}
+                      </motion.div>
+                    );
+                  })}
+                </div>
+
+                {/* Completion message */}
+                {currentStep === steps.length && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8 }}
+                    className="mt-8 p-4 bg-[#ecfeff] border-2 border-[#2ebb77] rounded-lg"
+                  >
+                    <p
+                      className="text-sm font-medium text-[#2ebb77] text-center"
+                      style={{ fontFamily: 'var(--font-sans)' }}
+                    >
+                      Ready to translate! 🎉
+                    </p>
+                  </motion.div>
+                )}
+              </div>
+            </motion.div>
           </div>
-        )}
+        </div>
       </div>
       <AuthModal
         isOpen={showAuthModal}

@@ -87,7 +87,7 @@ export function AuthModal({ isOpen, onClose, onSignupComplete }: AuthModalProps)
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: "spring", duration: 0.5 }}
-              className="bg-[#e1f3f3] rounded-lg shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto relative"
+              className="rounded-lg shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto relative bg-gradient-to-b from-white/80 to-transparent"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close button */}
@@ -108,12 +108,12 @@ export function AuthModal({ isOpen, onClose, onSignupComplete }: AuthModalProps)
                     {isSignup ? 'Create Account' : 'Continue to Translate Your File'}
                   </h2>
                   <p 
-                    className="text-sm text-[#6B6B6B]"
+                    className="text-xs text-[#6B6B6B]"
                     style={{ fontFamily: 'var(--font-sans)' }}
                   >
                     {isSignup 
-                      ? 'Join us to start translating your documents'
-                      : 'To upload and translate your file, please sign in or create an account. This helps us save your translations and manage your documents securely.'
+                      ? 'Create an account to start translating'
+                      : 'Sign in to upload and translate your files'
                     }
                   </p>
                 </div>
@@ -233,7 +233,7 @@ export function AuthModal({ isOpen, onClose, onSignupComplete }: AuthModalProps)
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="w-full bg-black text-white py-3 px-4 rounded-lg font-medium hover:bg-gray-800 transition-colors mt-6"
+                    className="w-full bg-[#2ebb77] text-white py-3 px-4 rounded-lg font-medium hover:bg-[#25a063] transition-colors mt-6"
                     style={{ fontFamily: 'var(--font-sans)' }}
                   >
                     {isSignup ? 'Create Account' : 'Sign In'}
@@ -263,7 +263,7 @@ export function AuthModal({ isOpen, onClose, onSignupComplete }: AuthModalProps)
                   </div>
                   <div className="relative flex justify-center text-sm">
                     <span 
-                      className="px-2 bg-[#e1f3f3] text-gray-500"
+                      className="px-2 bg-gradient-to-b from-white/80 to-transparent text-gray-500"
                       style={{ fontFamily: 'var(--font-sans)' }}
                     >
                       or continue with

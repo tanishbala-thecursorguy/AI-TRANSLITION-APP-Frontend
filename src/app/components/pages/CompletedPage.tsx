@@ -45,7 +45,7 @@ export function CompletedPage() {
           <h1 className="text-2xl md:text-4xl mb-2" style={{ fontFamily: 'var(--font-serif)' }}>
             Completed Translations
           </h1>
-          <p className="text-sm md:text-base text-[#6B6B6B]" style={{ fontFamily: 'var(--font-sans)' }}>
+          <p className="text-sm md:text-base text-[#6B6B6B] imperial-script-font">
             View and manage your translated documents
           </p>
         </motion.div>
@@ -70,7 +70,7 @@ export function CompletedPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-lg p-6 shadow-sm"
+                  className="border border-[rgba(0,0,0,0.08)] rounded-lg p-6 shadow-sm bg-gradient-to-b from-white/80 to-transparent"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <FileText className="w-8 h-8 text-black" />
@@ -114,7 +114,7 @@ export function CompletedPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-lg p-12 md:p-16 text-center"
+            className="border border-[rgba(0,0,0,0.08)] rounded-lg p-12 md:p-16 text-center bg-gradient-to-b from-white/80 to-transparent"
           >
             <FileText className="w-12 h-12 md:w-16 md:h-16 mx-auto mb-4 text-[#6B6B6B] opacity-50" />
             <p className="text-sm md:text-base text-[#6B6B6B] mb-2" style={{ fontFamily: 'var(--font-sans)' }}>
@@ -146,7 +146,7 @@ export function CompletedPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-lg p-6 hover:border-black hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md"
+                className="border border-[rgba(0,0,0,0.08)] rounded-lg p-6 hover:border-black hover:-translate-y-1 transition-all duration-300 shadow-sm hover:shadow-md bg-gradient-to-b from-white/80 to-transparent"
               >
                 <div className="flex items-start justify-between mb-4">
                   <FileText className="w-8 h-8 text-black" />
@@ -174,7 +174,7 @@ export function CompletedPage() {
                 <div className="flex gap-2">
                   <button
                     onClick={() => handleViewFile(file.id)}
-                    className="flex-1 px-4 py-2 bg-black text-white rounded-md hover:bg-[#3A3A3A] transition-all text-sm flex items-center justify-center gap-2"
+                    className="flex-1 px-4 py-2 bg-[#2ebb77] text-white rounded-md hover:bg-[#25a063] transition-all text-sm flex items-center justify-center gap-2"
                     style={{ fontFamily: 'var(--font-sans)' }}
                   >
                     <ExternalLink className="w-3 h-3" />

@@ -35,7 +35,7 @@ export function UpgradeModal({ isOpen, onClose }: UpgradeModalProps) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: 'spring', duration: 0.5 }}
-              className="bg-[#e1f3f3] rounded-lg shadow-2xl max-w-md w-full p-8 relative"
+              className="rounded-lg shadow-2xl max-w-md w-full p-8 relative bg-gradient-to-b from-white/80 to-transparent"
             >
               {/* Close button */}
               <button
@@ -79,7 +79,7 @@ export function UpgradeModal({ isOpen, onClose }: UpgradeModalProps) {
               <div className="flex flex-col gap-3">
                 <button
                   onClick={handleUpgrade}
-                  className="w-full py-3 bg-black text-white rounded-md hover:bg-[#3A3A3A] hover:-translate-y-0.5 shadow-sm hover:shadow-md transition-all duration-300"
+                  className="w-full py-3 bg-[#2ebb77] text-white rounded-md hover:bg-[#25a063] hover:-translate-y-0.5 shadow-sm hover:shadow-md transition-all duration-300"
                   style={{ fontFamily: 'var(--font-sans)' }}
                 >
                   Upgrade Plan

@@ -37,7 +37,7 @@ export function StatusPage() {
               <h1 className="text-2xl md:text-4xl mb-2" style={{ fontFamily: 'var(--font-serif)' }}>
                 Translation Status
               </h1>
-              <p className="text-sm md:text-base text-[#6B6B6B]" style={{ fontFamily: 'var(--font-sans)' }}>
+              <p className="text-sm md:text-base text-[#6B6B6B] imperial-script-font">
                 Monitor your translation progress
               </p>
             </div>
@@ -84,7 +84,7 @@ export function StatusPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-lg p-6"
+                  className="border border-[rgba(0,0,0,0.08)] rounded-lg p-6 bg-gradient-to-b from-white/80 to-transparent"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-start gap-4 flex-1">
@@ -145,7 +145,7 @@ export function StatusPage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
                   whileHover={{ y: -2 }}
-                  className="bg-[#e1f3f3] border border-[rgba(0,0,0,0.08)] rounded-lg p-6 hover:shadow-md transition-all duration-300"
+                  className="border border-[rgba(0,0,0,0.08)] rounded-lg p-6 hover:shadow-md transition-all duration-300 bg-gradient-to-b from-white/80 to-transparent"
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex items-start gap-4 flex-1">
@@ -169,7 +169,7 @@ export function StatusPage() {
                     </div>
                     <button
                       onClick={() => navigate(`/editing/${file.id}`)}
-                      className="px-4 py-2 bg-black text-white rounded-md hover:bg-[#3A3A3A] transition-all duration-300 hover:-translate-y-0.5 shadow-sm hover:shadow-md flex items-center gap-2"
+                      className="px-4 py-2 bg-[#2ebb77] text-white rounded-md hover:bg-[#25a063] transition-all duration-300 hover:-translate-y-0.5 shadow-sm hover:shadow-md flex items-center gap-2"
                       style={{ fontFamily: 'var(--font-sans)' }}
                     >
                       Open Editing Panel

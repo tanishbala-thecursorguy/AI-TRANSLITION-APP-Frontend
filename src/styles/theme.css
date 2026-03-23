@@ -4,7 +4,7 @@
   --font-size: 16px;
   /* Turquoise Blue Background Theme */
   --background: rgba(220, 255, 253, 0.1);  /* Ultra-light Turquoise Blue - 90% transparency */
-  --foreground: #083344;  /* Dark cyan-tinted text */
+  --foreground: #000;  /* Dark cyan-tinted text */
   --card: #ffffff;
   --card-foreground: #083344;
   --popover: #FFFFFF;
@@ -43,9 +43,9 @@
   --sidebar-ring: rgba(8, 145, 178, 0.3);
   
   /* Typography */
-  --font-cursive: 'Playfair Display', serif;
-  --font-serif: 'Crimson Pro', serif;
-  --font-sans: 'Inter', sans-serif;
+  --font-cursive: 'UnifrakturMaguntia', cursive;
+  --font-serif: 'UnifrakturMaguntia', cursive;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 

@@ -84,18 +84,12 @@ export const DesktopSidebar = ({
   children,
   ...props
 }: React.ComponentProps<typeof motion.div>) => {
-  const { open, setOpen, animate } = useSidebar();
   return (
     <motion.div
       className={cn(
-        "h-full px-4 py-4 hidden md:flex md:flex-col bg-[#e1f3f3] border-r border-[rgba(0,0,0,0.08)] w-[300px] flex-shrink-0 fixed left-0 top-0 bottom-0 z-40",
+        "h-full px-4 py-4 flex md:flex-col border-r border-[rgba(0,0,0,0.08)] w-[300px] flex-shrink-0 fixed left-0 top-0 bottom-0 z-40 bg-gradient-to-b from-white/80 to-transparent",
         className
       )}
-      animate={{
-        width: animate ? (open ? "300px" : "60px") : "300px",
-      }}
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
       {...props}
     >
       {children}
@@ -113,7 +107,7 @@ export const MobileSidebar = ({
     <>
       <div
         className={cn(
-          "h-10 px-4 py-4 flex flex-row md:hidden items-center justify-between bg-[#e1f3f3] border-b border-[rgba(0,0,0,0.08)] w-full fixed top-0 left-0 right-0 z-50"
+          "h-10 px-4 py-4 flex flex-row md:hidden items-center justify-between border-b border-[rgba(0,0,0,0.08)] w-full fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-white/80 to-transparent"
         )}
         {...props}
       >
@@ -134,7 +128,7 @@ export const MobileSidebar = ({
                 ease: "easeInOut",
               }}
               className={cn(
-                "fixed h-full w-full inset-0 bg-[#e1f3f3] p-10 z-[100] flex flex-col justify-between",
+                "fixed h-full w-full inset-0 p-10 z-[100] flex flex-col justify-between bg-gradient-to-b from-white/80 to-transparent",
                 className
               )}
             >
@@ -164,18 +158,15 @@ export const SidebarLink = ({
   className?: string;
   onClick?: () => void;
   isActive?: boolean;
-  key?: React.Key;
 }) => {
-  const { open, animate } = useSidebar();
   return (
     <button
       onClick={onClick}
       className={cn(
-        "flex items-center gap-2 group/sidebar py-3 rounded-md transition-all w-full",
-        open ? "justify-start px-3" : "justify-center px-0",
+        "flex items-center gap-2 group/sidebar py-3 rounded-md transition-all w-full justify-start px-3",
         isActive
-          ? "bg-black text-white"
-          : "text-neutral-700 hover:bg-[#ecfeff]",
+          ? "bg-[#8a8888] text-white"
+          : "text-neutral-700 hover:bg-[#c9c7c7]",
         className
       )}
       style={{ fontFamily: "var(--font-sans)" }}
@@ -189,18 +180,14 @@ export const SidebarLink = ({
       >
         {link.icon}
       </div>
-      <motion.span
-        animate={{
-          display: animate ? (open ? "inline-block" : "none") : "inline-block",
-          opacity: animate ? (open ? 1 : 0) : 1,
-        }}
+      <span
         className={cn(
           "text-sm group-hover/sidebar:translate-x-1 transition duration-150 whitespace-pre inline-block !p-0 !m-0",
           isActive ? "text-white" : "text-neutral-700"
         )}
       >
         {link.label}
-      </motion.span>
+      </span>
     </button>
   );
 };

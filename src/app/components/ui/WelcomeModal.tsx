@@ -32,7 +32,7 @@ export function WelcomeModal({ isOpen, onClose, isNewUser }: WelcomeModalProps) 
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: "spring", duration: 0.5 }}
-              className="bg-[#e1f3f3] rounded-lg shadow-2xl max-w-md w-full overflow-y-auto relative"
+              className="rounded-lg shadow-2xl max-w-md w-full overflow-y-auto relative bg-gradient-to-b from-white/80 to-transparent"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close button */}
@@ -91,7 +91,7 @@ export function WelcomeModal({ isOpen, onClose, isNewUser }: WelcomeModalProps) 
                 {/* Action Button */}
                 <button
                   onClick={onClose}
-                  className="w-full bg-black text-white py-3 px-4 rounded-lg font-medium hover:bg-[#3A3A3A] transition-colors mt-6"
+                  className="w-full bg-[#2ebb77] text-white py-3 px-4 rounded-lg font-medium hover:bg-[#25a063] transition-colors mt-6"
                   style={{ fontFamily: 'var(--font-sans)' }}
                 >
                   {isNewUser ? 'OK' : 'Continue'}

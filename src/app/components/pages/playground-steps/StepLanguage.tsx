@@ -100,7 +100,7 @@ export function StepLanguage({ data, updateData }: StepLanguageProps) {
       <h2 className="text-2xl mb-2" style={{ fontFamily: 'var(--font-serif)' }}>
         Language Settings
       </h2>
-      <p className="text-[#6B6B6B] mb-8" style={{ fontFamily: 'var(--font-sans)' }}>
+      <p className="text-[#6B6B6B] mb-8 imperial-script-font">
         Configure source and destination languages
       </p>
 
@@ -187,7 +187,7 @@ export function StepLanguage({ data, updateData }: StepLanguageProps) {
                         <motion.div
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
-                          className="flex-shrink-0 w-5 h-5 bg-black rounded-full flex items-center justify-center"
+                          className="flex-shrink-0 w-5 h-5 bg-[#2ebb77] rounded-full flex items-center justify-center"
                         >
                           <CheckCircle className="w-3 h-3 text-white" />
                         </motion.div>

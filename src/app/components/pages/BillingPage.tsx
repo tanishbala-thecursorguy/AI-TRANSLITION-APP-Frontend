@@ -112,7 +112,7 @@ export function BillingPage() {
           <h1 className="text-2xl md:text-4xl mb-2 md:mb-4" style={{ fontFamily: 'var(--font-serif)' }}>
             Billing & Pricing
           </h1>
-          <p className="text-sm md:text-base text-[#6B6B6B] max-w-2xl mx-auto" style={{ fontFamily: 'var(--font-sans)' }}>
+          <p className="text-sm md:text-base text-[#6B6B6B] max-w-2xl mx-auto imperial-script-font">
             Choose the perfect plan for your translation needs
           </p>
           {user && (
@@ -131,7 +131,7 @@ export function BillingPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -8 }}
-              className={`bg-[#e1f3f3] border rounded-lg p-8 transition-all duration-300 ${
+              className={`border rounded-lg p-8 transition-all duration-300 bg-gradient-to-b from-white/80 to-transparent ${
                 tier.highlighted
                   ? 'border-black shadow-lg'
                   : 'border-[rgba(0,0,0,0.08)] hover:border-[rgba(0,0,0,0.2)] hover:shadow-md'

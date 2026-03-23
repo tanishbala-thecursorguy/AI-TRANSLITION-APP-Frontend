@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router';
 import { Play, CheckCircle, FileText, CreditCard, HelpCircle, UserCircle } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -6,7 +5,6 @@ import { Sidebar, SidebarBody, SidebarLink } from '../ui/animated-sidebar';
 import { cn } from '../ui/utils';
 
 export function MainLayout() {
-  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -46,39 +44,26 @@ export function MainLayout() {
   ];
 
   return (
-    <div className="min-h-screen flex w-full" style={{ fontFamily: 'var(--font-sans)', backgroundColor: 'rgba(220, 255, 253, 0.1)' }}>
-      <Sidebar open={open} setOpen={setOpen}>
-        <SidebarBody className="justify-between gap-10">
+    <div className="min-h-screen flex w-full" style={{ fontFamily: 'var(--font-sans)', backgroundColor: '#cccccc' }}>
+      <Sidebar open={true} setOpen={() => {}}>
+        <SidebarBody className="justify-between gap-10" style={{ width: '300px' }}>
           <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
             {/* Logo */}
-            <div className={cn("mb-8", open ? "" : "flex justify-center")}>
-              {open ? (
-                <motion.h2
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="text-2xl"
-                  style={{ fontFamily: 'var(--font-cursive)' }}
-                >
-                  AI Book Translation
-                </motion.h2>
-              ) : (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="h-10 w-10 rounded-lg bg-black flex items-center justify-center"
-                >
-                  <span className="text-white font-bold text-xl" style={{ fontFamily: 'var(--font-cursive)' }}>
-                    A
-                  </span>
-                </motion.div>
-              )}
+            <div className={cn("mb-8")}>
+              <motion.h2
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-2xl"
+                style={{ fontFamily: 'var(--font-cursive)' }}
+              >
+                AI Book Translation
+              </motion.h2>
             </div>
 
             {/* Menu Links */}
             <div className="flex flex-col gap-2">
-              {links.map((link, idx) => (
+              {links.map((link) => (
                 <SidebarLink
-                  key={link.label}
                   link={link}
                   onClick={() => navigate(link.href)}
                   isActive={location.pathname === link.href}
@@ -90,11 +75,11 @@ export function MainLayout() {
       </Sidebar>
 
       {/* Main Content */}
-      <div className="flex-1 md:ml-[60px] transition-all duration-300">
+      <div className="flex-1 ml-[300px] transition-all duration-300">
         <motion.main
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.15 }}
           className="pt-20 md:pt-12 px-6 lg:px-12 pb-12 min-h-screen"
         >
           <Outlet />
