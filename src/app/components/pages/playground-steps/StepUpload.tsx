@@ -106,6 +106,13 @@ export function StepUpload({ data, updateData, onFileAnalyzed }: StepUploadProps
 
   return (
     <div>
+      {/* Embedded Google Font */}
+      <style>
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=Quintessential&display=swap');
+        `}
+      </style>
+
       <h2 className="text-2xl mb-2" style={{ fontFamily: 'var(--font-serif)' }}>
         Upload Document
       </h2>
@@ -149,7 +156,7 @@ export function StepUpload({ data, updateData, onFileAnalyzed }: StepUploadProps
         )}
       </div>
 
-      <p className="text-sm text-center text-[#6B6B6B] mt-4" style={{ fontFamily: 'var(--font-sans)' }}>
+      <p className="text-sm text-center text-[#6B6B6B] mt-4 file-format-text">
         Supports PDF, DOCX, TXT, PNG, JPG
       </p>
 

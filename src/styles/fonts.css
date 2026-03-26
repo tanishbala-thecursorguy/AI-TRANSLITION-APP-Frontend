@@ -13,9 +13,9 @@
   --font-normal: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* UnifrakturMaguntia font for main headings */
-h1, h2, .logo, .brand-name {
-  font-family: 'UnifrakturMaguntia', cursive !important;
+/* Quintessential font for ALL headings */
+h1, h2, h3, h4, h5, h6, .logo, .brand-name {
+  font-family: 'Quintessential', cursive !important;
 }
 
 /* Quintessential font for sidebar */
@@ -45,6 +45,11 @@ h4 ~ p {
 }
 
 /* Keep all other text with normal font */
-*, *::before, *::after {
+body, p {
   font-family: var(--font-normal) !important;
+}
+
+/* Quintessential font for file format text */
+.file-format-text {
+  font-family: 'Quintessential', cursive !important;
 }
